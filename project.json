@@ -1,0 +1,15 @@
+{
+  "name": "@ad3d/react-slide-rule",
+  "tags": [],
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ad3d-react-slide-rule/src",
+  "projectType": "library",
+  "targets": {
+    "clean": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "rimraf libs/ad3d-react-slide-rule/dist libs/ad3d-react-slide-rule/node_modules"
+      }
+    }
+  }
+}

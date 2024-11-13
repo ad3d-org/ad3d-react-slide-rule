@@ -176,7 +176,7 @@ export default function Canvas({
         ref={canvasRef}
         width={width}
         height={height}
-        style={styles.createCanvasStyle(translate, isXAxis())}
+        style={styles.createCanvasStyle(translate, isXAxis()) as any}
         onTouchStart={handleTouchStart}
         onMouseDown={handleTouchStart}
         onTouchMove={handleTouchMove}

@@ -4,6 +4,7 @@
   "description": "A React component allowing users to select a value along a subjective range and step.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "private": true,
   "keywords": [
     "react",
     "slide",
@@ -39,12 +40,8 @@
       "pre-commit": "yarn lint && cd example-demo-app && yarn lint"
     }
   },
-  "dependencies": {
-    "@babel/polyfill": "^7.12.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
   "devDependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@babel/cli": "^7.13.16",
     "@babel/core": "^7.14.0",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -57,7 +54,6 @@
     "@typescript-eslint/parser": "^6.9.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.53.0",
-    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",

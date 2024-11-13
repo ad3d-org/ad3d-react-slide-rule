@@ -85,7 +85,7 @@ const SlideRule = forwardRef<HTMLDivElement, SlideRuleProps>(function SlideRule(
   } = rest;
 
   return (
-    <div ref={ref} style={styles.createRootStyle(style)}>
+    <div ref={ref} style={styles.createRootStyle(style) as React.CSSProperties}>
       <Canvas
         onChange={onChange}
         gap={gap}
@@ -107,7 +107,7 @@ const SlideRule = forwardRef<HTMLDivElement, SlideRuleProps>(function SlideRule(
         unit={unit}
         pointers={pointers}
       />
-      <div style={styles.createCenterStyle(_isXAxis(axis))}>{cursor}</div>
+      <div style={styles.createCenterStyle(_isXAxis(axis)) as React.CSSProperties}>{cursor}</div>
     </div>
   );
 });
