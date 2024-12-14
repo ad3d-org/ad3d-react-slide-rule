@@ -53,4 +53,5 @@ export interface SlideRuleProps {
     value: number;
     styles?: MarkStyle;
   }[];
+  onPointerUp?: () => void
 }

@@ -8,7 +8,9 @@ type TouchType =
   | React.TouchEvent<HTMLCanvasElement>
   | React.MouseEvent<HTMLCanvasElement>;
 
-type Props = Required<Omit<SlideRuleProps, 'style' | 'showWarning' | 'cursor'>>;
+type Props = Required<Omit<SlideRuleProps, 'style' | 'showWarning' | 'cursor'>> & {
+  onPointerUp?: () => void;
+};
 
 export default function Canvas({
   axis,
@@ -25,6 +27,7 @@ export default function Canvas({
   smallerMarkStyle,
   unit,
   pointers,
+  onPointerUp 
 }: Props) {
   const [translate, setTranslate] = useState(0);
 
@@ -103,6 +106,11 @@ export default function Canvas({
     if (browserEnv.current) {
       moveGradations(util.calcInertialShfitInPx(touchPointsRef.current));
     }
+
+    if (onPointerUp) {
+      onPointerUp();
+    }
+
     setTranslate(0);
     touchPointsRef.current = [];
   }
@@ -163,6 +171,7 @@ export default function Canvas({
       calcMarkCoordinate,
       isXAxis: isXAxis(),
       pointers,
+      onPointerUp,
     });
   }
 

@@ -19,6 +19,7 @@ const DEFAULT_X_AXIS_PROPS: SlideRuleProps = {
     rotate: 0,
   },
   pointers: [],
+  onPointerUp: () => {}
 };
 
 const DEFAULT_Y_AXIS_PROPS: SlideRuleProps = {
@@ -71,6 +72,7 @@ const SlideRule = forwardRef<HTMLDivElement, SlideRuleProps>(function SlideRule(
     style,
     showWarning = false,
     pointers = [],
+    onPointerUp, // no default here
     ...rest
   } = props;
 
@@ -84,9 +86,19 @@ const SlideRule = forwardRef<HTMLDivElement, SlideRuleProps>(function SlideRule(
     cursor = defaults.cursor,
   } = rest;
 
+  // Handle onPointerUp event, using the passed prop if available
+  const handlePointerUp = () => {
+    if (onPointerUp) {
+      onPointerUp();
+    } else {
+      console.log('onPointerUp detected');
+    }
+  };
+
   return (
     <div ref={ref} style={styles.createRootStyle(style) as React.CSSProperties}>
       <Canvas
+        onPointerUp={handlePointerUp} // Pass the event handler
         onChange={onChange}
         gap={gap}
         step={step}
@@ -95,13 +107,8 @@ const SlideRule = forwardRef<HTMLDivElement, SlideRuleProps>(function SlideRule(
         value={Number(value)}
         axis={axis}
         markStyle={_getOrMerge(defaults.markStyle, markStyle)}
-        smallerMarkStyle={_getOrMerge(
-          defaults.smallerMarkStyle,
-          smallerMarkStyle
-        )}
-        numberStyle={
-          _getOrMerge(defaults.numberStyle, numberStyle) as NumberStyle
-        }
+        smallerMarkStyle={_getOrMerge(defaults.smallerMarkStyle, smallerMarkStyle)}
+        numberStyle={_getOrMerge(defaults.numberStyle, numberStyle) as NumberStyle}
         width={width}
         height={height}
         unit={unit}
