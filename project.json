@@ -14,7 +14,7 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npm run build"
+        "command": "npm run build --prefix libs/ad3d-react-slide-rule"
       },
       "outputs": ["{projectRoot}/dist"],
       "dependsOn": ["^build"]
