@@ -10,6 +10,14 @@
       "options": {
         "command": "rimraf libs/ad3d-react-slide-rule/dist libs/ad3d-react-slide-rule/node_modules"
       }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "babel src --extensions .tsx,.ts -d dist && tsc"
+      },
+      "outputs": ["{projectRoot}/dist"],
+      "dependsOn": ["^build"]
     }
   }
 }
