@@ -14,7 +14,7 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "babel src --extensions .tsx,.ts -d dist && tsc"
+        "command": "babel libs/ad3d-react-slide-rule/src --extensions .tsx,.ts -d libs/ad3d-react-slide-rule/dist && tsc"
       },
       "outputs": ["{projectRoot}/dist"],
       "dependsOn": ["^build"]
